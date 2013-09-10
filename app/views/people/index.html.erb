@@ -1,0 +1,17 @@
+<h1>Listing People</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Brithday</th>
+  </tr>
+ 
+  <% @people.each do |p| %>
+    <tr>
+      <td><%= p.first_name + ' ' + p.last_name %></td>
+      <td><%= p.email %></td>
+      <td><%= p.birth_date %></td>
+    </tr>
+  <% end %>
+</table>
