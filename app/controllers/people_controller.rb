@@ -26,8 +26,8 @@ end
 def update
   @person = Person.find(params[:id])
  
-  if @person.update(post_params)
-    redirect_to @person
+  if @person.update(params[:person].permit(:first_name, :last_name, :birth_date, :email))
+    redirect_to @person 
   else
     render 'edit'
   end
