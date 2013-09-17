@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  person_id: 
+  event_type: 
+  hour: 
+  min:
+  sec: 
+  event_name: 
+
+two:
+  person_id: 
+  event_type: 
+  hour: 
+  min: 
+  sec: 
+  event_name: 

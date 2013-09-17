@@ -1,0 +1,37 @@
+<h1>Listing personal_records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Person</th>
+      <th>Event type</th>
+      <th>Hour</th>
+      <th>Min</th>
+      <th>Sec</th>
+      <th>Event Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personal_records.each do |personal_record| %>
+      <tr>
+        <td><%= personal_record.person %></td>
+        <td><%= personal_record.event_type %></td>
+        <td><%= personal_record.hour %></td>
+        <td><%= personal_record.min %></td>
+        <td><%= personal_record.sec %></td>
+        <td><%= personal_record.event_name %></td>
+        <td><%= link_to 'Show', personal_record %></td>
+        <td><%= link_to 'Edit', edit_personal_record_path(personal_record) %></td>
+        <td><%= link_to 'Destroy', personal_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Personal record', new_personal_record_path %>

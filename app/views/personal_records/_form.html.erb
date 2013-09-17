@@ -1,0 +1,41 @@
+<%= form_for(@personal_record) do |f| %>
+  <% if @personal_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@personal_record.errors.count, "error") %> prohibited this personal_record from being saved:</h2>
+
+      <ul>
+      <% @personal_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :person %><br>
+    <%= f.text_field :person %>
+  </div>
+  <div class="field">
+    <%= f.label :event_type %><br>
+    <%= f.text_field :event_type %>
+  </div>
+  <div class="field">
+    <%= f.label :hour %><br>
+    <%= f.text_field :hour %>
+  </div>
+  <div class="field">
+    <%= f.label :min %><br>
+    <%= f.text_field :min %>
+  </div>
+  <div class="field">
+    <%= f.label :sec %><br>
+    <%= f.text_field :sec %>
+  </div>
+  <div class="field">
+    <%= f.label :event_name %><br>
+    <%= f.text_field :event_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

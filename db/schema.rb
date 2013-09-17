@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130908051137) do
+ActiveRecord::Schema.define(version: 20130916043751) do
+
+  create_table "event_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", force: true do |t|
     t.string   "first_name"
@@ -21,5 +27,18 @@ ActiveRecord::Schema.define(version: 20130908051137) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "personal_records", force: true do |t|
+    t.integer  "person_id"
+    t.integer  "event_type_id"
+    t.integer  "hour"
+    t.integer  "min"
+    t.integer  "sec"
+    t.string   "event_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "personal_records", ["person_id"], name: "index_personal_records_on_person_id"
 
 end

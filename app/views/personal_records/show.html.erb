@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @personal_record.person %>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @personal_record.event_type %>
+</p>
+
+<p>
+  <strong>Hour:</strong>
+  <%= @personal_record.hour %>
+</p>
+
+<p>
+  <strong>Min:</strong>
+  <%= @personal_record.min %>
+</p>
+
+<p>
+  <strong>Sec:</strong>
+  <%= @personal_record.sec %>
+</p>
+
+<p>
+  <strong>Event Name:</strong>
+  <%= @personal_record.event_name %>
+</p>
+
+<%= link_to 'Edit', edit_personal_record_path(@personal_record) %> |
+<%= link_to 'Back', personal_records_path %>

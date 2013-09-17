@@ -1,5 +1,9 @@
 Activeboard::Application.routes.draw do
 
+  resources :personal_records
+
+  resources :event_types
+
 resources :people
   #get "people/index"
   # The priority is based upon order of creation: first created -> highest priority.
