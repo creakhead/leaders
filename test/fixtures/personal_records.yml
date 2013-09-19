@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  person_id: 
-  event_type: 
-  hour: 
-  min:
-  sec: 
-  event_name: 
+  person_id: 1
+  event_type: 1
+  hour: 3
+  min: 3
+  sec: 0
+  event_name: testing
 
 two:
-  person_id: 
-  event_type: 
-  hour: 
-  min: 
-  sec: 
-  event_name: 
+  person_id: 2
+  event_type: 2
+  hour: 2
+  min: 2
+  sec: 2
+  event_name: 2 Testing

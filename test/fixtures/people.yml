@@ -3,8 +3,8 @@
 one:
   first_name: MyString
   last_name: MyString
-  brith_date: 2013-09-07
-  email: MyString
+  birth_date: 2013-09-07
+  email: testing@active.com
 
 two:
   first_name: MyString
