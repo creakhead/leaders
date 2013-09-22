@@ -32,6 +32,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem "omniauth-facebook", "~> 1.4.1"
+
+gem "pry", "~> 0.9.12.2"
+gem "koala", "~> 1.6.0"
+gem "rest-client", "~> 1.6.7"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

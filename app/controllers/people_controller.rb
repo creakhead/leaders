@@ -35,6 +35,6 @@ end
 
 private
 	def post_params
-		params.require(:people).permit(:first_name, :last_name, :birth_date, :email)
+		params.require(:people).permit(:uid, :name, :first_name, :last_name, :birth_date, :email, :gender, :image)
 	end
 end

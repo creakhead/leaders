@@ -1,16 +1,26 @@
 Activeboard::Application.routes.draw do
 
+  resources :friends
+
   resources :personal_records
 
   resources :event_types
 
-resources :people
+  resources :people
   #get "people/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root to:'people#index'
+
+  #match 'auth/:provider/callback', to: 'sessions#create'
+  #match 'auth/failure', to: redirect('/')
+  #match 'signout', to: 'sessions#destroy', as: 'signout'
+
+  get 'auth/:provider/callback' => 'sessions#create' 
+  get 'auth/failure' => redirect('/')
+  get 'signout' => 'sessions#destroy', as: 'signout'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

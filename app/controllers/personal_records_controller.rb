@@ -69,6 +69,6 @@ class PersonalRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personal_record_params
-      params.require(:personal_record).permit(:person_id, :event_type_id, :hour, :min, :sec, :event_name)
+      params.require(:personal_record).permit(:person_id, :event_type_id, :event_name, :result_time, :url, :sub_cat, :event_id, :sub_event_id, :pr, :record_id)
     end
 end

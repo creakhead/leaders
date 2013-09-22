@@ -2,6 +2,7 @@
  
 <table>
   <tr>
+    <th><th>
     <th>Name</th>
     <th>Email</th>
     <th>Brithday</th>
@@ -9,7 +10,8 @@
  
   <% @people.each do |p| %>
     <tr>
-      <td><%= p.first_name + ' ' + p.last_name %></td>
+      <td><img src='<%= p.image %>' /></td>
+      <td><%= p.name %></td>
       <td><%= p.email %></td>
       <td><%= p.birth_date %></td>
       <td><%= link_to 'Show', person_path(p) %></td>
