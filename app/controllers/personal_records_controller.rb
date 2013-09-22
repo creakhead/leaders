@@ -9,6 +9,10 @@ class PersonalRecordsController < ApplicationController
 
   def subcat
     @personal_records = PersonalRecord.where("sub_cat LIKE '%" + params[:name] + "'").order('result_time asc')
+    respond_to do |format|
+      format.json { render json: @personal_records }
+      format.html
+    end
   end
 
   def event
