@@ -20,6 +20,7 @@ class Person < ActiveRecord::Base
 	    user.image = auth.info.image
 	    user.oauth_expires = Time.at(auth.credentials.expires_at)
 	    user.save!
+		Person.findActiveResults(user)
 
 	    #find a list of this users friends
 	    @graph = Koala::Facebook::API.new(user.oauth_token)
@@ -76,9 +77,10 @@ class Person < ActiveRecord::Base
 		  		event_data = ActiveSupport::JSON.decode(event_data)
 
 		  		Person.saveRecord(user, record_data, event_data, @parts[8])
-		  	rescue
-		  		puts 'Bad RECORD URL: ' + record_url
-		  		puts 'Bad EVENT URL: ' + event_url
+		  	rescue Exception => e
+                  puts "Error: #{e}"
+                  puts 'Bad RECORD URL: ' + record_url unless record_url.nil?
+                  puts 'Bad EVENT URL: ' + event_url unless event_url.nil?
 	  		end
 	  		#binding.pry
 	  	end
@@ -91,30 +93,32 @@ class Person < ActiveRecord::Base
 			my_rec = PersonalRecord.find_by_record_id(record['id'])
 			#binding.pry
 		   if(my_rec == nil) 
-		   		@time = record['race_result']['finish_time'].split(':')
-		   		
-		   		my_time = Time.new(1978, 1, 19, 0, 0, 0, "-00:00")
-		   		if(@time.size == 1)
-		   			my_time = Time.new(1978, 1, 19, 0, 0, @time[0].to_i, "-00:00")
-		   		elsif(@time.size == 2)
-		   			my_time = Time.new(1978, 1, 19, 0, @time[0].to_i, @time[1].to_i, "-00:00")
-		   		elsif( @time.size == 3)
-					my_time = Time.new(1978, 1, 19, @time[0].to_i, @time[1].to_i, @time[2].to_i,"-00:00")
-		   		end
-		   		
-		   		rel = PersonalRecord.create(
-		   			:person_id => user['id'], 
-		   			:record_id => record['id'],
-		   			:event_type_id => 0, 
-		   			:event_name => event['title'], 
-		   			:result_time => my_time, 
-		   			:url => record['url'], 
-		   			:sub_cat => subCategory,
-		   			:event_id => record['event_id'], 
-		   			:sub_event_id => record['sub_event_id'],
-		   			:pr => 0
-		   			)
-		   		rel.save
+		   		if(record['race_result']['finish_time'] != nil)
+			   		@time = record['race_result']['finish_time'].split(':')
+			   		
+			   		my_time = Time.new(1978, 1, 19, 0, 0, 0, "-00:00")
+			   		if(@time.size == 1)
+			   			my_time = Time.new(1978, 1, 19, 0, 0, @time[0].to_i, "-00:00")
+			   		elsif(@time.size == 2)
+			   			my_time = Time.new(1978, 1, 19, 0, @time[0].to_i, @time[1].to_i, "-00:00")
+			   		elsif( @time.size == 3)
+						my_time = Time.new(1978, 1, 19, @time[0].to_i, @time[1].to_i, @time[2].to_i,"-00:00")
+			   		end
+			   		
+			   		rel = PersonalRecord.create(
+			   			:person_id => user['id'], 
+			   			:record_id => record['id'],
+			   			:event_type_id => 0, 
+			   			:event_name => event['title'], 
+			   			:result_time => my_time, 
+			   			:url => record['url'], 
+			   			:sub_cat => subCategory,
+			   			:event_id => record['event_id'], 
+			   			:sub_event_id => record['sub_event_id'],
+			   			:pr => 0
+			   			)
+			   		rel.save
+			   	end
 		   end
 		end
 	#end
