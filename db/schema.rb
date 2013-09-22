@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 20130922025838) do
   end
 
   create_table "friends", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "person_id"
     t.integer  "friend_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "people", force: true do |t|
