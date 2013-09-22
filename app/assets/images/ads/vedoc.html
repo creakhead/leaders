@@ -1,0 +1,40 @@
+<html>
+<head>
+</head>
+<body style="margin:0px">
+	<div id="ve_iframeBusterDiv" >
+	<script language="javascript">
+		// ver: 1.0	
+		function gup( name )
+		{
+		  name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+		  var regexS = "[\\?&]"+name+"=([^&#]*)";
+		  var regex = new RegExp( regexS );
+		  var results = regex.exec( window.location.href );
+		  if( results == null )
+		    return "";
+		  else
+		    return results[1];
+		}
+		
+		try {
+			var tid = gup("tagid"),
+				turl = gup("tagurl"),
+				d = document,
+				b = d.body;
+			if (tid != ""){
+				//set the tagid attribute from the url param. 
+				d.write("<script tagid='"+tid+"' src='"
+				+ unescape(turl)
+				+ "'><\/script>");
+			}
+			else {
+				var msg = d.createElement("div");
+				msg.innerHTML = "v1.0 Missing tagid and tagurl";
+				b.insertBefore(msg, b.childNodes[0])
+			}
+		} catch(e){}
+	</script>
+	</div>
+</body>
+</html>

@@ -16,8 +16,220 @@
     <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
   <% end %>
 </div>
-
+<div class="header-main sg-header">
+    <div class="container">
+      <div class="span12 top-user-details">
+        <div class="row">
+          <div class="profile">
+            <div class="pull-right">
+              <div class="pull-left" id="user-info-a">
+                <nav class="nav-login">
+                  <div class="span4">
+                    <div class="user-details">
+                      <div class="user-email">
+                        Hello, UserNameHere
+                        <span class="space">|</span>
+                        <a href="/">My Account</a>
+                        <span class="space">|</span>
+                        <a href="/" class="sign-out-link" data-method="get" id="signout-link">Log Out</a>
+                      </div>
+                    </div>
+                  </div>
+                </nav>
+                <br class="clear">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="span12">
+        <div class="row">
+          <div class="span3">
+            <div class="logo hide-text">
+              <a href="/">ACTIVE.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 <%= yield %>
+   <div class="content-wrap container clearfix" id="gc1" style="display:none;" >
+  <div class="grid-container">
+    <div class="row">
+      <div class="span1"></div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+      <div class="span1">&nbsp;</div>
+    </div>
+  </div>
+</div>
 
+
+  <!-- global footer-->
+
+  <footer class="context-footer">
+  <div class="container">
+    <div class="row banner">
+       
+    </div>
+    <div class="row sisters">
+      <div class="span3">
+        <h5><a href="http://www.activegolf.com">ACTIVEGolf.com</a></h5>
+        <p>Online Golf Tee Times with Last Minute Tee Time Deals & Discounts</p>
+      </div>
+      <div class="span3">
+        <h5><a href="http://www.coolrunning.com">CoolRunning.com</a></h5>
+        <p>Cool Running is the complete online resource for runners.</p>
+      </div>
+      <div class="span3">
+        <h5><a href="http://www.reserveamerica.com">ReserveAmerica.com</a></h5>
+        <p>Find your favorite campground from the best campgrounds listing!</p>
+      </div>
+      <div class="span3">
+        <h5><a href="http://www.wannado.com">WannaDo.com</a></h5>
+        <p>What have you always wanted to do?</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+<footer class="global-footer">
+    <div class="container">
+    <div class="banner"></div>
+    <div class="row">
+      <div class="span8">
+        
+          <p class="secondary-text">ACTIVE is the leader in online event registrations from 5k running races and marathons to softball leagues and local events. ACTIVE also makes it easy to learn and prepare for all the things you love to do with expert resources, training plans and fitness calculators.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2 column3">
+        <h2>Follow Active</h2>
+        <ul>
+          <li><span aria-hidden="true" class="icon-uniB100"></span><a href="http://www.facebook.com/Activecom">Facebook</a></li>
+          <li><span aria-hidden="true" class="icon-uniB200"></span><a href="https://twitter.com/active">Twitter</a></li>
+          <li><span aria-hidden="true" class="icon-uniB400"></span><a href="http://pinterest.com/source/active.com/">Pinterest</a></li>
+          <li><span aria-hidden="true" class="icon-uniH500"></span><a href="http://community.active.com/index.jspa?int=29-107-3">ACTIVE Forums</a></li>
+        </ul>
+      </div>
+      <div class="span2 column3">
+        <h2>Mobile Apps</h2>
+        <ul>
+          <li><a href="https://play.google.com/store/apps/details?id=com.active.fnd.mobile">Android</a></li>
+          <li><a href="http://itunes.apple.com/us/app/active-com/id401736219?mt=8">iOS</a></li>
+        </ul>
+      </div>
+      <div class="span4 column3">
+        
+          <h2>Things To Do</h2>
+          <div class="row">
+            <div class="span2">
+              <ul class="unstyled">
+                <li><a href="/running/races" onclick="s_objectID='footer nav global running races link'">Running Races</a></li>
+                <li><a href="/triathlon/races" onclick="s_objectID='footer nav global triathlon races link'">Triathlon Races</a></li>
+                <li><a href="/cycling/bike-racing" onclick="s_objectID='footer nav global cycling link'">Cycling</a></li>
+                <li><a href="/cycling/mountain-biking-races" onclick="s_objectID='footer nav global mountain biking races link'">Mountain Biking</a></li>
+                <li><a href="/running/5k-races" onclick="s_objectID='footer nav global 5k races link'">5K Races</a></li>
+                <li><a href="/running/10k-races" onclick="s_objectID='footer nav global 10k races link'">10k Races</a></li>
+              </ul>
+            </div>
+            <div class="span2">
+              <ul class="unstyled">
+                <li><a href="/running/half-marathon-races" onclick="s_objectID='footer nav global half marathon races link'">Half Marathon</a></li>
+                <li><a href="/running/marathon-races" onclick="s_objectID='footer nav marathon races link'">Marathon</a></li>
+                <li><a href="/running/ultra-races" onclick="s_objectID='footer nav global ultra races link'">Ultra Running</a></li>
+                <li><a href="/running/trail-running-races" onclick="s_objectID='footer nav global trail running races link'">Trail Running</a></li>
+                <li><a href="/running/mud-running-races" onclick="s_objectID='footer nav global mub run races link'">Mud Runs</a></li>
+                <li><a href="/swimming" onclick="s_objectID='footer nav global swimming link'">Swimming</a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div class="span4 column3">
+        <h2>Popular on ACTIVE.com</h2>
+
+<div class="row">
+<div class="span2">
+<ul class="unstyled">
+  <li><a href="/san-diego-ca">San Diego</a></li>
+  <li><a href="/los-angeles-ca">Los Angeles</a></li>
+  <li><a href="/new-york-ny">New York City</a></li>
+  <li><a href="/denver-co">Denver</a></li>
+  <li><a href="/houston-tx">Houston</a></li>
+  <li><a href="/las-vegas-nv">Las Vegas</a></li>
+</ul>
+</div>
+
+<div class="span2">
+<ul class="unstyled">
+  <li><a href="http://www.active.com/fitness/calculators/bmi?force_a2=y">BMI Calculator</a></li>
+  <li><a href="http://www.active.com/fitness/calculators/calories?force_a2=y">Calorie Calculator</a></li>
+  <li><a href="/running/5k">5k Training</a></li>
+  <li><a href="/running/couch-to-5k-guide">Couch to 5k</a></li>
+  <li><a href="/running/half-marathon">Half Marathon Training</a></li>
+  <li><a href="/running/marathon">Marathon Training</a></li>
+</ul>
+</div>
+</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2">&nbsp;</div>
+      <div class="span2">&nbsp;</div>
+      <div class="span4">
+        <div class="other-links">
+          <a href="/browse" class="section-footer-link">More Things to Do</a>
+        </div>
+      </div>
+      <div class="span4">&nbsp;</div>
+    </div>
+
+    <!-- organizers -->
+    <div class="org row">
+      <div class="span2">
+        <a class="network-logo hide-text" href="http://www.activenetwork.com/">ACTIVE Network</a>
+      </div>
+      <div class="span9 offset1">
+        <h2 class="pull-left">Organizer Technology Solutions:</h2>
+        <div class="pull-left">
+          <a href="http://www.activenetwork.com/software/instant-ads.htm?int=29-77">Advertise My Activities</a>
+          <a href="http://www.activenetwork.com/active-login/">Account Access</a>
+          <!--a class="actv-btn" href="http://www.active.com/events/event_add_listing.cfm?origin=tips">Post an Activity</a-->
+        </div>
+      </div>
+    </div>
+
+    <!-- Network -->
+    <ul class="network nav nav-pills">
+      <li><a href="http://www.active.com/page/about/">About ACTIVE.com</a></li>
+      <li><a href="http://beta.active.com/browse">Sitemap</a></li>
+      <li><a title="Terms of Use" href="http://www.activenetwork.com/terms-of-use.htm">Terms of Use</a></li>
+      <li><a title="Investors" href="http://investors.activenetwork.com/phoenix.zhtml?c=179599&amp;p=irol-irhome">Investors</a></li>
+      <li><a title="Your Privacy Rights" href="http://www.activenetwork.com/information/privacy-policy-active-com-9-14-11.htm">Privacy Policy</a></li>
+      <li><a title="Security" href="http://www.activenetwork.com/security.htm">Security</a></li>
+      <li><a title="Advertising" href="http://www.activenetwork.com/media/online-advertising.htm?int=29-79/">Advertising</a></li>
+      <li><a title="Careers at Active" href="http://careers.activenetwork.com/">Careers</a></li>
+      <li><a href="http://community.active.com/community/active">Support &amp; Feedback</a><li>
+      <li><a href="/inquiry">FAQ</a></li>
+      <li><a href="http://developer.active.com/">Active Access</a><li>
+      <li class="no_bullet"><a href="http://www.activenetwork.com">Copyright &copy; 2013 The Active Network, Inc.</a></li>
+    </ul>
+
+   
+  </div>
+</footer>
+
+
+  
 </body>
 </html>

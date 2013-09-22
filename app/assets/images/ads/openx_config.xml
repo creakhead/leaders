@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openX>
+  <package name="running" zoneid="9">
+    <keyword>marathon</keyword>
+    <keyword>half marathon</keyword>
+    <keyword>half-marathon</keyword>
+    <keyword>5k</keyword>
+    <keyword>10k</keyword>
+    <keyword>15k</keyword>
+    <keyword>running</keyword>
+    <keyword>run</keyword>
+    <keyword>runs</keyword>
+  </package>
+  <package name="cycling" zoneid="7">
+    <keyword>century</keyword>
+    <keyword>bike</keyword>
+    <keyword>cycling</keyword>
+    <keyword>biking</keyword>
+  </package>
+</openX>

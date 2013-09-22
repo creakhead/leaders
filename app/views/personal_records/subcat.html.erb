@@ -1,14 +1,27 @@
-<h1><%= params[:name].capitalize + " Leaderboard" %></h1>
+<style>
+  td {padding:10px;text-align: center;}
+  th {text-align: center;}
+  table {
+    margin-left: auto;
+    margin-right: auto;
+  }
+ .myResults {background-image: -webkit-linear-gradient(top, #f6c25c, #e8a21b) }
+</style>
+<h1 style="
+    text-align: center;
+    padding-top: 20px;"><%= params[:name].capitalize + " Leaderboard" %></h1>
  <% @personal_records.each_with_index do |personal_record, index| %>
     <% if session[:person_id] == personal_record.id %>
-    	MY CURRENT PLACE <br> <%=index + 1%> / <%= @personal_records.size %>
+    <h2 style="text-align:center">
+      <a style="text-align:center" class="btn btn-large-yellow">MY CURRENT PLACE <br> <%=index + 1%> / <%= @personal_records.size %></a></h2>
     <% end %>
   <% end %>
-<table>
+  <br/>
+<table style="width:70%">
   <thead>
     <tr>
-      <th></th>
-      <tb></th>
+      <th>Rank</th>
+      <th></th>   
       <th>Person</th>
       <th>Time</th>
       <th>Event Name</th>
@@ -19,24 +32,22 @@
   <tbody>
     <% @personal_records.each_with_index do |personal_record, index| %>
     <% if session[:person_id] == personal_record.id %>
-      <tr style="background-color: yellow">
+      <tr class="myResults">
     <% else %>
     	<tr>
     <% end %>
-    	<td><%=index + 1 %>
+    	  <td><h2><%=index + 1 %></h2>
       	<td><img src='<%= personal_record.person.image %>' /></td>
-        <td><%= personal_record.person.name %></td>
-        <td><%= personal_record.result_time.strftime('%H:%M:%S') %></td>
+        <td style="white-space: nowrap"><h2><%= personal_record.person.name %></h2></td>
+        <td><h2><%= personal_record.result_time.strftime('%H:%M:%S') %></h2></td>
         <td>
         	<%= link_to personal_record.event_name, :action=> 'event', :name => personal_record.event_name %>
-        	<a target="_blank" href="<%= personal_record.url%>">[link]</a>
+        	<a target="_blank" href="<%= personal_record.url%>"><span aria-hidden="true" class="icon-uniG100"></a>
         </td>
-        <td><%= personal_record.sub_cat %></td>
+        <td><%= personal_record.sub_cat.capitalize %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Personal record', new_personal_record_path %>
