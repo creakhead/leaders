@@ -15,14 +15,17 @@
 
   <tbody>
     <% @personal_records.each do |personal_record| %>
-      <tr>
+    <% if session[:person_id] == personal_record.id %>
+      <tr style="background-color: yellow">
+    <% else %>
+    	<tr>
+    <% end %>
       	<td><img src='<%= personal_record.person.image %>' /></td>
         <td><%= personal_record.person.name %></td>
         <td><%= personal_record.event_type_id %></td>
         <td><%= personal_record.result_time.strftime('%H:%M:%S') %></td>
-        <td><%= personal_record.event_name %></td>
+        <td><a target="_blank" href="<%= personal_record.url%>"><%= personal_record.event_name %></a></td>
         <td><%= personal_record.sub_cat %></td>
-
       </tr>
     <% end %>
   </tbody>

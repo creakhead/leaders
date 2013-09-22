@@ -22,9 +22,9 @@ Activeboard::Application.routes.draw do
   get 'auth/failure' => redirect('/')
   get 'signout' => 'sessions#destroy', as: 'signout'
 
-  get 'subcat/:name' => 'personal_records#subcat'
-  get 'event/:name' => 'personal_records#event'
-  
+  get 'subcat/:name' => 'personal_records#subcat', as: 'subcat'
+  get 'event/:name' => 'personal_records#event', as: 'event'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
