@@ -8,7 +8,7 @@ class PersonalRecordsController < ApplicationController
   end
 
   def subcat
-    @personal_records = PersonalRecord.where("sub_cat LIKE '%" + params[:name] + "'").order('result_time asc')
+    @personal_records = PersonalRecord.where("sub_cat LIKE '%" + ActionController::Base.helpers.sanitize(params[:name]) + "'").order('result_time asc')
     respond_to do |format|
       format.json { render json: @personal_records }
       format.html
@@ -16,7 +16,7 @@ class PersonalRecordsController < ApplicationController
   end
 
   def event
-    @personal_records = PersonalRecord.where("event_name = '" + params[:name] + "'").order('result_time asc')
+    @personal_records = PersonalRecord.where("event_name = '" + ActionController::Base.helpers.sanitize(params[:name]) + "'").order('result_time asc')
   end
 
   # GET /personal_records/1

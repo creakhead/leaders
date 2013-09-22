@@ -1,5 +1,5 @@
 <h1>Listing personal_records</h1>
-
+ <%= session[:person_id] %>
 <table>
   <thead>
     <tr>
@@ -9,24 +9,25 @@
       <th>Time</th>
       <th>Event Name</th>
       <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @personal_records.each do |personal_record| %>
-      <tr>
+    <% if session[:person_id] == personal_record.id %>
+      <tr style="background-color: yellow">
+    <% else %>
+    	<tr>
+    <% end %>
       	<td><img src='<%= personal_record.person.image %>' /></td>
         <td><%= personal_record.person.name %></td>
         <td><%= personal_record.event_type_id %></td>
         <td><%= personal_record.result_time.strftime('%H:%M:%S') %></td>
-        <td><%= personal_record.event_name %></td>
+        <td>
+        	<%= link_to personal_record.event_name, :action=> 'event', :name => personal_record.event_name %>
+        	<a target="_blank" href="<%= personal_record.url%>">[link]</a>
+        </td>
         <td><%= personal_record.sub_cat %></td>
-        <td><%= link_to 'Show', personal_record %></td>
-        <td><%= link_to 'Edit', edit_personal_record_path(personal_record) %></td>
-        <td><%= link_to 'Destroy', personal_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
