@@ -23,6 +23,8 @@ Activeboard::Application.routes.draw do
   get 'signout' => 'sessions#destroy', as: 'signout'
 
   get 'subcat/:name' => 'personal_records#subcat'
+  get 'event/:name' => 'personal_records#event'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
