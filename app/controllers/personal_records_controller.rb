@@ -9,10 +9,30 @@ class PersonalRecordsController < ApplicationController
 
   def subcat
     @personal_records = PersonalRecord.where("sub_cat LIKE ?", "%" + params[:name]).order('result_time asc')
+    respond_to do |format|
+      format.json do
+        output = @personal_records.to_json
+        if params[:callback].present?
+          output = params[:callback] + '(' + output + ')'
+        end
+       render json: output
+      end
+      format.html
+    end
   end
 
   def event
     @personal_records = PersonalRecord.where("event_name = ?", params[:name]).order('result_time asc')
+     respond_to do |format|
+      format.json do
+        output = @personal_records.to_json
+        if params[:callback].present?
+          output = params[:callback] + '(' + output + ')'
+        end
+       render json: output
+      end
+      format.html
+    end
   end
 
   # GET /personal_records/1
