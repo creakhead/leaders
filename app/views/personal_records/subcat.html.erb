@@ -1,11 +1,15 @@
-<h1>Listing personal_records</h1>
- <%= session[:person_id] %>
+<h1><%= params[:name].capitalize + " Leaderboard" %></h1>
+ <% @personal_records.each_with_index do |personal_record, index| %>
+    <% if session[:person_id] == personal_record.id %>
+    	MY CURRENT PLACE <br> <%=index + 1%> / <%= @personal_records.size %>
+    <% end %>
+  <% end %>
 <table>
   <thead>
     <tr>
       <th></th>
+      <tb></th>
       <th>Person</th>
-      <th>Event type</th>
       <th>Time</th>
       <th>Event Name</th>
       <th>Category</th>
@@ -13,15 +17,15 @@
   </thead>
 
   <tbody>
-    <% @personal_records.each do |personal_record| %>
+    <% @personal_records.each_with_index do |personal_record, index| %>
     <% if session[:person_id] == personal_record.id %>
       <tr style="background-color: yellow">
     <% else %>
     	<tr>
     <% end %>
+    	<td><%=index + 1 %>
       	<td><img src='<%= personal_record.person.image %>' /></td>
         <td><%= personal_record.person.name %></td>
-        <td><%= personal_record.event_type_id %></td>
         <td><%= personal_record.result_time.strftime('%H:%M:%S') %></td>
         <td>
         	<%= link_to personal_record.event_name, :action=> 'event', :name => personal_record.event_name %>
