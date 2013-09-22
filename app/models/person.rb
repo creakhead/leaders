@@ -34,7 +34,7 @@ class Person < ActiveRecord::Base
 		   		rel = Friend.create(:person_id => user.id, :friend_id => newFriend.id)
 		   		rel.save
 		   end
- 			Person.findActiveResults(i)
+ 			Person.findActiveResults(newFriend)
  			#binding.pry
 		end
 	  end
