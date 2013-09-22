@@ -11,7 +11,7 @@ class PersonalRecordsController < ApplicationController
     @personal_records = PersonalRecord.where("sub_cat LIKE ?", "%" + params[:name]).order('result_time asc')
     respond_to do |format|
       format.json do
-        output = @personal_records.to_json
+        output = @personal_records.to_json(:include => :person)
         if params[:callback].present?
           output = params[:callback] + '(' + output + ')'
         end
@@ -25,7 +25,7 @@ class PersonalRecordsController < ApplicationController
     @personal_records = PersonalRecord.where("event_name = ?", params[:name]).order('result_time asc')
      respond_to do |format|
       format.json do
-        output = @personal_records.to_json
+        output = @personal_records.to_json(:include => :person)
         if params[:callback].present?
           output = params[:callback] + '(' + output + ')'
         end
@@ -38,6 +38,7 @@ class PersonalRecordsController < ApplicationController
   # GET /personal_records/1
   # GET /personal_records/1.json
   def show
+
   end
 
   # GET /personal_records/new

@@ -33,6 +33,10 @@ function getData(categories) {
   return dfd;
 }
 
+//funtion getPerson(id) {
+//  $.getJSON('http://localhost:3000/people/' + id + '.json?', onDone);
+//}
+
 var categories = getCategories(asset);
 categories.splice(0,0,{mediaType: "This Event", url: 'http://localhost:3000/event/' + asset.assetName });
 var ajax = getData(categories);
@@ -49,11 +53,12 @@ ajax.done(function(data) {
     for(var j = 0; j < data[i][0].length; j++) {
       var item = data[i][0][j];
       var time = item.result_time.split('T')[1].substring(0,8);
-      html += '<p>' + time;
+      var person = item.person;
+      html += '<li style="list-style:none"><img style="padding:5px;vertical-align: top;" src="' + person.image + '" /><span style="display:inline-block"><b>' + time + "</b><br>" + person.name + "<br>";
       if(showEvent) {
-        html += ' at ' + item.event_name;
+        html += item.event_name;
       }
-      html += '</p>';
+      html += '</span></li>';
 
       if(j == 9) {
         break;

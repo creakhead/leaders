@@ -12,7 +12,7 @@ Activeboard::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to:'people#index'
+  root to:'personal_records#dashboard'
 
   #match 'auth/:provider/callback', to: 'sessions#create'
   #match 'auth/failure', to: redirect('/')
@@ -24,7 +24,7 @@ Activeboard::Application.routes.draw do
 
   get 'subcat/:name' => 'personal_records#subcat', as: 'subcat'
   get 'event/:name' => 'personal_records#event', as: 'event'
-
+  #get 'dashboard' => 'personal_records#dashboard'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
